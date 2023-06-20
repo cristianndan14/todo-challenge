@@ -1,0 +1,55 @@
+{% extends 'todo/main.html' %}
+
+{% block content %}
+<div class="header-bar">
+    <div>
+        <h1>Hello {{ request.user|title }}</h1>
+        <h4>You have <i>{{ count }}</i> task{{ count|pluralize:'s' }} to complete</h4>
+        {% if request.user.is_authenticated %}
+            <a class="button" href="{% url 'logout' %}"><strong>Logout</strong></a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+
+<div class="task-search">
+    <h1>My To-Do List</h1>
+    <strong><a href="{% url 'task-create' %}">Add New Item</a></strong>
+    <br>
+    <br>
+    {% include 'todo/search.html' %}
+    <br>
+</div>
+<div class="task-list">
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>State</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </thead>
+        {% for tasks in task %}
+        <tr>
+            <td>{{tasks.title}} - </td>
+            {% if tasks.complete == True %}
+                <td><small><strong>Complete | </strong></small></td>
+            {% else %}
+                <td><small>Incomplete | </small></td>
+            {% endif %}
+            <td><small>{{tasks.created}} | </small></td>
+            <td>
+                <a href="{% url 'task-detail' tasks.id %}">View</a>
+                <a href="{% url 'task-update' tasks.id %}">Update</a>
+                <a href="{% url 'task-delete' tasks.id %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <h3>No items in list</h3>
+        
+        {% endfor %}
+    </table> 
+</div>
+
+{% endblock content %}

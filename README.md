@@ -1,37 +1,37 @@
-# Invera ToDo-List Challenge (Python/Django Jr-SSr)
+# To Do Challenge Invera
 
-El propósito de esta prueba es conocer tu capacidad para crear una pequeña aplicación funcional en un límite de tiempo. A continuación, encontrarás las funciones, los requisitos y los puntos clave que debés tener en cuenta durante el desarrollo.
+To Do app con auth de usuarios y CRUD de tasks. También con filtro/buscador de tareas por titulo y fecha
 
-## Qué queremos que hagas:
+## Requisitos
 
-- El Challenge consiste en crear una aplicación web sencilla que permita a los usuarios crear y mantener una lista de tareas.
-- La entrega del resultado será en un nuevo fork de este repo y deberás hacer una pequeña demo del funcionamiento y desarrollo del proyecto ante un super comité de las más grandes mentes maestras de Invera, o a un par de devs, lo que sea más fácil de conseguir.
-- Podes contactarnos en caso que tengas alguna consulta.
+- Python 3.8 o superior
+- Django 4.2
 
-## Objetivos:
+## Configuración del Entorno Virtual
 
-El usuario de la aplicación tiene que ser capaz de:
+1. Clona el repositorio o descarga el código fuente del proyecto.
+2. Abre una terminal o línea de comandos en la carpeta del proyecto.
+3. Crea un nuevo entorno virtual ejecutando el siguiente comando:
 
-- Autenticarse
-- Crear una tarea
-- Eliminar una tarea
-- Marcar tareas como completadas
-- Poder ver una lista de todas las tareas existentes
-- Filtrar/buscar tareas por fecha de creación y/o por el contenido de la misma
+   ```shell
+   python3 -m venv nombre_del_entorno_virtual
 
-## Qué evaluamos:
+## Activar Entorno Virtual (en windows)
 
-- Desarrollo utilizando Python, Django. No es necesario crear un Front-End, pero sí es necesario tener una API que permita cumplir con los objetivos de arriba.
-- Uso de librerías y paquetes estandares que reduzcan la cantidad de código propio añadido.
-- Calidad y arquitectura de código. Facilidad de lectura y mantenimiento del código. Estándares seguidos.
-- [Bonus] Manejo de logs.
-- [Bonus] Creación de tests (unitarias y de integración)
-- [Bonus] Unificar la solución propuesta en una imagen de Docker por repositorio para poder ser ejecutada en cualquier ambiente (si aplica para full stack).
+    nombre_del_entorno_virtual\Scripts\activate
 
-## Requerimientos de entrega:
+## Activar Entorno Virtual (en linux)
 
-- Hacer un fork del proyecto y pushearlo en github. Puede ser privado.
-- La solución debe correr correctamente.
-- El Readme debe contener todas las instrucciones para poder levantar la aplicación, en caso de ser necesario, y explicar cómo se usa.
-- Disponibilidad para realizar una pequeña demo del proyecto al finalizar el challenge.
-- Tiempo para la entrega: Aproximadamente 7 días.
+    source nombre_del_entorno_virtual/bin/activate
+
+## Instalar requerimientos
+
+    pip install -r requirements.txt
+
+## Realizar las migraciones
+
+    python manage.py migrate
+
+## Desplegar aplicacion en local
+
+    python manage.py runserver

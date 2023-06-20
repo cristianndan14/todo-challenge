@@ -1,0 +1,16 @@
+{% extends 'todo/main.html' %}
+
+{% block content %}
+<div class="task-list">
+  <h2>Register</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register Now</button>
+  
+    <p>Have an account already? <a href="{% url 'login' %}">Login Now</a></p>
+  </form>
+</div>
+
+
+{% endblock content %}
